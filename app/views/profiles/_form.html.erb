@@ -1,0 +1,27 @@
+<%= form_with model: profile do |form|  %>
+    <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% profile.errors.full_messages_for(:name).each do |message| %>
+        <div> <%= message %> </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :age %><br>
+        <%= form.number_field :age %><br>
+        <% profile.errors.full_messages_for(:age).each do |message| %>
+            <div> <%= message %> </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+
+<div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+</div>
+
+<% end %>

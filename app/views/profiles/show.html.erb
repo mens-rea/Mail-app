@@ -1,0 +1,16 @@
+<h1><%= @profile.name %></h1>
+<p> <%= @profile.age %> </p>
+
+<ul>
+    <li><%= link_to "Edit", edit_profile_path(@profile) %></li>
+    <li><%= link_to "Destroy", profile_path(@profile), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    } %></li>
+</ul>
+
+<h2>Comments</h2>
+    <%= render @profile.comments %>
+
+<h2> Add a comment </h2>
+    <%= render 'comments/form' %>

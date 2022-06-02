@@ -1,0 +1,15 @@
+<h1> Welcome</h1>
+
+    Your Profile has <%= Profile.public_count %> profiles and counting!
+
+<ul>
+    <% @profile.each do |profile| %>
+    <% unless profile.archived? %>
+        <li>
+            <%= link_to profile.name, profile %>
+        </li>
+        <% end %>
+    <% end %>
+</ul>
+
+<%= link_to "New Profile", new_profile_path %>
